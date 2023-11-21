@@ -14,8 +14,12 @@ import { ModifComponent } from './modif/modif.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { E404Component } from './e404/e404.component';
-import { FormUniversiteComponent } from './form-universite/form-universite.component';
-import { ListeUniversiteComponent } from './liste-universite/liste-universite.component';
+import { AjoutBlocComponent } from './ajout-bloc/ajout-bloc.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgToastModule } from 'ng-angular-popup';
+import { ListBlocComponent } from './list-bloc/list-bloc.component';
+import { ModifBlocComponent } from './modif-bloc/modif-bloc.component';
 
 
 @NgModule({
@@ -30,12 +34,17 @@ import { ListeUniversiteComponent } from './liste-universite/liste-universite.co
     DashboardComponent,
     LoginComponent,
     E404Component,
-    FormUniversiteComponent,
-    ListeUniversiteComponent,
+    AjoutBlocComponent,
+    ListBlocComponent,
+    ModifBlocComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
