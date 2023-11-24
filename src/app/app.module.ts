@@ -17,6 +17,10 @@ import { AddUniversiteComponent } from './Universite/Components/AddUniversite/ad
 import { ListUniversiteComponent } from './Universite/Components/ListUniversite/list-universite/list-universite.component';
 import { UpdateUniversiteComponent } from './Universite/Components/UpdateUniversite/update-universite/update-universite.component';
 import { E404Component } from './e404/e404.component';
+import { FoyerComponent } from './foyer/foyer.component';
+import { AjouterFoyerComponent } from './foyer/ajouter-foyer/ajouter-foyer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ModifierFoyerComponent } from './foyer/modifier-foyer/modifier-foyer.component';
 
 
 @NgModule({
@@ -34,11 +38,15 @@ import { E404Component } from './e404/e404.component';
     ListUniversiteComponent,
     UpdateUniversiteComponent,
     E404Component,
+    FoyerComponent,
+    AjouterFoyerComponent,
+    ModifierFoyerComponent,
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
