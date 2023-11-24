@@ -1,0 +1,48 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<script src="https://kit.fontawesome.com/941eee4760.js" crossorigin="anonymous"></script>
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Liste des Foyers</h5>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Id Foyer
+                                    </th>
+                                    <th>Nom Foyer</th>
+                                    <th>Capacité Foyer</th>
+                                    <th>Nom Université</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let foyer of foyers">
+                                <td>{{ foyer.idFoyer }}</td>
+                                <td>{{ foyer.nomFoyer }}</td>
+                                <td>{{ foyer.capaciteFoyer }}</td>
+                                <td>{{ foyer.universite }}</td>
+                                <td>
+                                  <a style="color:red"> <i class="fa-solid fa-trash ms-4"></i></a>
+                                  <a style="color:blue"> <i class="fa-solid fa-pen-to-square ms-4"></i></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>
