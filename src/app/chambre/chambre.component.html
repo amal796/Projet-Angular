@@ -12,8 +12,8 @@
                             <div class="col-6">
                                 <h5 class="card-title">Liste des chambres</h5>
                             </div>
-                            <div class="col-6 text-right mt-3" style="text-align: right;">
-                                <button class="btn btn-primary ml-3" (click)="openAddCertificateModal()">
+                            <div class="col-6 text-right mt-3 " style="text-align: right;">
+                                <button class="btn offset" (click)="openAddCertificateModal()">
                                     <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i>
                                     <span class="d-none d-sm-inline-block">Ajouter un chambre</span>
                                 </button>
@@ -60,9 +60,10 @@
                                             </textarea>
                                         </div>
                                     </div>
-                                    <div class="modal-body" *ngIf="visualViewport">
-                                        <iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7Jph3?logo=1&info=1&fs=1&vr=0&sd=1&autorotate=1.42&thumbs=1"><</iframe>
-                                    </div>
+
+                                    <div class="modal-body" *ngIf="visualViewport" [innerHTML]="visualUrl"></div>
+
+
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Sauvegarder</button>
                                     </div>
@@ -72,23 +73,25 @@
                         </ng-template>
 
 
-
                         <div class="row">
                             <div class="col-4">
-                                <div>
-                                    <label class="d-flex align-items-center ml-1 ml-md-0">
-                                        Recherche:<input
+                                <div class="search-container">
+                                    <input
                                             [(ngModel)]="searchValue"
                                             name="searchValue"
                                             type="search"
-                                            class="form-control ml-25"
+                                            placeholder="Recherche..."
+                                            class="search-input form-control ml-25"
                                             (keyup)="filterUpdate($event)"
                                             (search)="filterUpdate($event)"
                                     />
-                                    </label>
+                                    <a class="search-btn">
+                                        <i class="fas fa-search"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+
 
                         <ngx-datatable
                                 class="bootstrap core-bootstrap"
@@ -125,7 +128,7 @@
                                 <ng-template let-row="row" ngx-datatable-cell-template>
                                     <button type="button" class="btn btn-primary btn-sm icon-center"
                                             (click)="openEditModal(row, true)">
-                                        <i class="fas fa-camera"></i>
+                                        <i class="bi bi-eye"></i>
                                     </button>
                                 </ng-template>
                             </ngx-datatable-column>

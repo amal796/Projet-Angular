@@ -2,7 +2,7 @@ import {Component, NgModule, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeHtml, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-chambre',
@@ -25,6 +25,7 @@ export class ChambreComponent implements OnInit {
     showModal = false;
     modalVirtualTourURL: SafeResourceUrl | undefined;
     visualViewport: boolean =  false;
+    visualUrl: SafeHtml | undefined;
     constructor(private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder,
                 private sanitizer: DomSanitizer) {
         this.getAllBlocs();
@@ -72,7 +73,7 @@ export class ChambreComponent implements OnInit {
     openAddCertificateModal() {
         this.visualViewport = false;
         this.currentEditingId = null;
-        this.isEditMode = false; // Set the edit mode flag to false
+        this.isEditMode = false;
         this.certificateForm.reset();
         this.modalService.open(this.addCertificateModal, {ariaLabelledBy: 'modal-basic-title'});
     }
@@ -125,6 +126,7 @@ export class ChambreComponent implements OnInit {
 
     openEditModal(rowData: any, b: boolean) {
         this.visualViewport = b;
+        this.visualUrl = this.sanitizer.bypassSecurityTrustHtml(rowData.virtualTourURL);
         console.log("visualViewport");
         console.log(this.visualViewport);
         console.log("row");
@@ -137,7 +139,7 @@ export class ChambreComponent implements OnInit {
             virtualTourURL: rowData.virtualTourURL,
             bloc: rowData.bloc.idBloc
         });
-        this.modalService.open(this.addCertificateModal); // Assuming you're using a modal service
+        this.modalService.open(this.addCertificateModal);
     }
 
     deleteFormation(row: any) {
