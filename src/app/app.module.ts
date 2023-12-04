@@ -1,6 +1,3 @@
-
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,9 +10,10 @@ import { MenuComponent } from './menu/menu.component';
 import { ModifComponent } from './modif/modif.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { AddUniversiteComponent } from './Universite/Components/AddUniversite/add-universite/add-universite.component';
-import { ListUniversiteComponent } from './Universite/Components/ListUniversite/list-universite/list-universite.component';
-import { UpdateUniversiteComponent } from './Universite/Components/UpdateUniversite/update-universite/update-universite.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LayoutComponentComponent } from './layout-component/layout-component.component';
 import { E404Component } from './e404/e404.component';
 
 
@@ -30,16 +28,24 @@ import { E404Component } from './e404/e404.component';
     ModifComponent,
     DashboardComponent,
     LoginComponent,
-    AddUniversiteComponent,
-    ListUniversiteComponent,
-    UpdateUniversiteComponent,
+    LayoutComponentComponent,
     E404Component,
    
   ],
+  exports: [
+    HeaderComponent,
+    MenuComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

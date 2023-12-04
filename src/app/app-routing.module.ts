@@ -5,9 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableComponent } from './table/table.component';
 import { AjoutComponent } from './ajout/ajout.component';
 import { ModifComponent } from './modif/modif.component';
-import { AddUniversiteComponent } from './Universite/Components/AddUniversite/add-universite/add-universite.component';
-import { ListUniversiteComponent } from './Universite/Components/ListUniversite/list-universite/list-universite.component';
-import { UpdateUniversiteComponent } from './Universite/Components/UpdateUniversite/update-universite/update-universite.component';
+import { UniversiteRoutingModule } from './Universite/Components/Routing/Universite-routing.module';
+import { EtudiantRoutingModule } from './etudiant/etudiant/etudiant-routing.module';
 import { E404Component } from './e404/e404.component';
 
 const routes: Routes = [
@@ -16,15 +15,14 @@ const routes: Routes = [
   { path: 'Table', component: TableComponent },
   { path: 'Ajouter', component: AjoutComponent },
   { path: 'Modifier', component: ModifComponent },
-  { path: 'AddUniversite', component: AddUniversiteComponent },
-  { path: 'ListUniversite', component: ListUniversiteComponent },
-  { path: 'UpdateUniversite', component: UpdateUniversiteComponent },
+  { path: 'etudiants', loadChildren: () => import('./etudiant/etudiant/etudiant.module').then(m => m.EtudiantModule) },
+  { path: 'universites', loadChildren: () => import('./Universite/Components/Routing/universite.module').then(m => m.UniversiteModule) },
   { path: '**', component: E404Component },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), EtudiantRoutingModule, UniversiteRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
