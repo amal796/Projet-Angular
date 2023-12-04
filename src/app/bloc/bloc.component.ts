@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Bloc } from '../Model/Bloc';
+import { Router } from '@angular/router';
 import { CrudService } from '../Services/CrudBloc';
 
 @Component({
-  selector: 'app-list-bloc',
-  templateUrl: './list-bloc.component.html',
-  styleUrls: ['./list-bloc.component.css']
+  selector: 'app-bloc',
+  templateUrl: './bloc.component.html',
+  styleUrls: ['./bloc.component.css']
 })
-export class ListBlocComponent {
+export class BlocComponent {
   listBlocs: Bloc[]
   numberOfBlocs: number = 0
 

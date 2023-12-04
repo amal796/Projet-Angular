@@ -6,12 +6,10 @@ describe('AjoutBlocComponent', () => {
   let component: AjoutBlocComponent;
   let fixture: ComponentFixture<AjoutBlocComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AjoutBlocComponent ]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [AjoutBlocComponent]
+    });
     fixture = TestBed.createComponent(AjoutBlocComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

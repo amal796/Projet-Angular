@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CrudService } from '../Services/CrudBloc';
-import { Bloc } from "../Model/Bloc";
 import { NgToastService } from 'ng-angular-popup';
-
-
+import { Bloc } from 'src/app/Model/Bloc';
+import { CrudService } from 'src/app/Services/CrudBloc';
 
 @Component({
   selector: 'app-ajout-bloc',
@@ -13,7 +11,6 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./ajout-bloc.component.css']
 })
 export class AjoutBlocComponent {
-
   BlocForm: FormGroup
 
   constructor(private services: CrudService, private router: Router, private fb: FormBuilder, private toast: NgToastService) {
@@ -45,8 +42,9 @@ export class AjoutBlocComponent {
 
     if (
       data.nomBloc == 0 ||
-      data.capaciteBloc == 0 ||
-      data.Foyer == 0
+      data.capaciteBloc == 0
+      // ||
+      //  data.Foyer == 0
     ) {
       this.toast.info({
         detail: ' Message d erreur',
@@ -61,7 +59,7 @@ export class AjoutBlocComponent {
             summary: 'Bloc ajoutée',
           });
 
-          this.router.navigate(['/ListBloc']);
+          this.router.navigate(['/Bloc']);
         },
         err => {
           console.log(err);

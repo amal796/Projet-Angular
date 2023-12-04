@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { CrudService } from '../Services/CrudBloc';
-import { Bloc } from '../Model/Bloc';
+import { Bloc } from 'src/app/Model/Bloc';
+import { CrudService } from 'src/app/Services/CrudBloc';
 
 @Component({
   selector: 'app-modif-bloc',
@@ -11,10 +11,9 @@ import { Bloc } from '../Model/Bloc';
   styleUrls: ['./modif-bloc.component.css']
 })
 export class ModifBlocComponent {
-
   id: number
   BlocForm: FormGroup
- 
+
   constructor(private services: CrudService, private router: Router, private fb: FormBuilder, private toast: NgToastService, private route: ActivatedRoute) {
     let formControls = {
       nomBloc: new FormControl('', [
@@ -46,7 +45,7 @@ export class ModifBlocComponent {
         nomBloc: event.nomBloc,
         capaciteBloc: event.capaciteBloc,
         Foyer: event.Foyer,
-     
+
 
       });
     });
@@ -60,17 +59,15 @@ export class ModifBlocComponent {
       data.nomBloc,
       data.capaciteBloc,
       data.Foyer,
-   
+
     );
     console.log(bloc);
     console.log(data);
     this.services.updateBloc(this.id, bloc).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['/ListBloc'])
+      this.router.navigate(['/Bloc'])
 
     });
   }
 
-
-  
 }
