@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter,Inject } from '@angular/core';
+import { Foyer } from '../foyer.model';
+import { FoyerService } from 'src/app/foyer.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modifier-foyer',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class ModifierFoyerComponent {
 
+
+
+  // Ajoutez d'autres propriétés et méthodes nécessaires pour la modification du foyer
 }

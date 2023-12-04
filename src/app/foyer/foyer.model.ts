@@ -1,9 +1,8 @@
 
 export interface Foyer {
-    id: number;
-    nom: string;
-    capacite: number;
-    universite: string;
-  
-  }
+  idFoyer: number;
+  nomFoyer: string;
+  capaciteFoyer: number | null;
+  nomBloc?:string;
+}
   

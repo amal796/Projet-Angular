@@ -1,18 +1,16 @@
-<!-- Default form login -->
-<form class="text-center border border-light p-5" th:action="{/@ajouter-bloc}" method="post">
-    <p class="h4 mb-4">Ajouter un Foyer</p>
-    <!-- Email -->
-    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Nom Foyer">
-    <!-- Password -->
-    <input type="text" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Capacité">
-    <div class="d-flex justify-content-around">
-      
-      
-    </div>
+<form (ngSubmit)="ajouterFoyer()" class="form-control" ngModelOptions="{standalone: true}">
+
+  <div class="form-group">
+    <label for="nomFoyer">Nom Foyer</label>
    
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Ajouter un Foyer</button>
-   
-    
-    
-  </form>
-  <!-- Default form login -->
+    <input type="text" [(ngModel)]="nouveauFoyer.nomFoyer" [ngModelOptions]="{standalone: true}" class="form-control" id="nomFoyer" placeholder="Entrer le nom du Foyer">
+
+  </div>
+  <div class="form-group">
+    <label for="capaciteFoyer">Capacité du Foyer</label>
+    <input type="text" [(ngModel)]="nouveauFoyer.capaciteFoyer" [ngModelOptions]="{standalone: true}"  class="form-control" id="capaciteFoyer" placeholder="Entrer la capacité du foyer">
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter Foyer</button>
+</form>
+
+

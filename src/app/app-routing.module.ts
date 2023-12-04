@@ -8,6 +8,7 @@ import { ModifComponent } from './modif/modif.component';
 import { FoyerComponent } from './foyer/foyer.component';
 
 import { E404Component } from './e404/e404.component';
+import { AjouterFoyerComponent } from './foyer/ajouter-foyer/ajouter-foyer.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
  { path: 'foyer', component: FoyerComponent},
 
   { path: '**', component: E404Component },
+ { path: 'AjouterFoyer' ,component: AjouterFoyerComponent,}
 
 ];
 
