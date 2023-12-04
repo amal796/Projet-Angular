@@ -46,7 +46,7 @@ export class ChambreComponent implements OnInit {
     }
 
     fetchData() {
-        const url = `http://localhost:8081/api/chambres`;
+        const url = `http://localhost:8081/PremierProjetTest/api/chambres`;
         this.http.get<any>(url).subscribe({
             next: (response) => {
                 this.rows = response;
@@ -58,7 +58,7 @@ export class ChambreComponent implements OnInit {
     }
 
     getAllBlocs() {
-        const url = `http://localhost:8081/api/blocs`;
+        const url = `http://localhost:8081/PremierProjetTest/api/blocs`;
         this.http.get<any>(url).subscribe({
             next: (response) => {
                 this.blocs = response;
@@ -92,7 +92,7 @@ export class ChambreComponent implements OnInit {
             console.log("formData");
             console.log(formData);
             if (this.isEditMode) {
-                const updateUrl = `http://localhost:8081/api/chambres/${this.currentEditingId}`;
+                const updateUrl = `http://localhost:8081/PremierProjetTest/api/chambres/${this.currentEditingId}`;
                 this.http.put(updateUrl, formData).subscribe({
                     next: (response) => {
                         console.log('Formation mise à jour :', response);
@@ -105,7 +105,7 @@ export class ChambreComponent implements OnInit {
                     }
                 });
             } else {
-                this.http.post('http://localhost:8081/api/chambres', formData).subscribe({
+                this.http.post('http://localhost:8081/PremierProjetTest/api/chambres', formData).subscribe({
                     next: (response) => {
                         console.log('Certificate added:', response);
                         modal.close();
@@ -144,7 +144,7 @@ export class ChambreComponent implements OnInit {
 
     deleteFormation(row: any) {
         const chambre_id = row.idChambre;
-        const url = `http://localhost:8081/api/chambres/${chambre_id}`;
+        const url = `http://localhost:8081/PremierProjetTest/api/chambres/${chambre_id}`;
         this.http.delete(url).subscribe({
             next: (response) => {
                 console.log('Certificate deleted:', response);
