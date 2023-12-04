@@ -8,12 +8,14 @@ import { ModifComponent } from './modif/modif.component';
 import { UniversiteRoutingModule } from './Universite/Components/Routing/Universite-routing.module';
 import { EtudiantRoutingModule } from './etudiant/etudiant/etudiant-routing.module';
 import { E404Component } from './e404/e404.component';
+import {ChambreComponent} from "./chambre/chambre.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Table', component: TableComponent },
   { path: 'Ajouter', component: AjoutComponent },
+  {path: 'chambres', component: ChambreComponent},
   { path: 'Modifier', component: ModifComponent },
   { path: 'etudiants', loadChildren: () => import('./etudiant/etudiant/etudiant.module').then(m => m.EtudiantModule) },
   { path: 'universites', loadChildren: () => import('./Universite/Components/Routing/universite.module').then(m => m.UniversiteModule) },

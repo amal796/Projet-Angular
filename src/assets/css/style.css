@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .logo img {
-  
+
   margin-right: 6px;
 }
 .logo span {
@@ -600,7 +600,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
   font-weight: 600;
   color: #4154f1;
-  transition: 0.3;
+  transition: 0.3s;
   background: #f6f9ff;
   padding: 10px 15px;
   border-radius: 4px;
@@ -642,7 +642,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   font-weight: 600;
   color: #012970;
-  transition: 0.3;
+  transition: 0.3s;
   padding: 10px 0 10px 40px;
   transition: 0.3s;
 }
@@ -1072,6 +1072,79 @@ h1, h2, h3, h4, h5, h6 {
 .footer .credits {
   padding-top: 5px;
   text-align: center;
-  font-size: 13px;
+  font-size: 8px;
   color: #012970;
 }
+button.offset {
+  --color: rgb(118, 148, 248); /* Set your desired color */
+  --hover: rgba(93, 130, 255, 0.99); /* Set your desired hover color */
+
+  color: var(--color);
+  transition: 0.25s;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+
+  box-shadow:
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color);
+
+  &:hover,
+  &:focus {
+    box-shadow:
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+
+
+
+
+.search-container {
+  background: #fff;
+  height: 30px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+
+
+}
+
+.search-container:hover > .search-input {
+  width: 300px;
+  border-radius: 30px;
+}
+
+.search-container .search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 300px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: width 0.8s, border-radius 0.8s;
+  border-radius: 30px;
+  box-shadow: 4px 4px 6px 0 rgb(60, 97, 239),
+  -4px -4px 6px 0 rgb(147, 153, 160),
+  inset -4px -4px 6px 0 rgb(118, 148, 248),
+  inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-container .search-btn .fas {
+  color: #1a87f8;
+}
+.search-container .search-btn:active {
+  transition: none; /* Disable transition during the click event */
+}
+
+
+

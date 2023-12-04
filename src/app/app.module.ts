@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LayoutComponentComponent } from './layout-component/layout-component.component';
 import { E404Component } from './e404/e404.component';
+import {ChambreComponent} from "./chambre/chambre.component";
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { E404Component } from './e404/e404.component';
     LoginComponent,
     LayoutComponentComponent,
     E404Component,
-   
+    ChambreComponent,
+
   ],
   exports: [
     HeaderComponent,
@@ -44,7 +48,8 @@ import { E404Component } from './e404/e404.component';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    
+    NgxDatatableModule,
+    NgbModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
